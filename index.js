@@ -1,3 +1,4 @@
+import http from 'http'
 import { Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
 //import TOKEN from './token.js'
@@ -11,12 +12,10 @@ bot.use(async (ctx, next) => {
 
 bot.on(message('text'), ctx => ctx.reply('Hello World'))
 bot.launch()
-
-/*
-var http = require('http');
-http.createServer(function (req, res) {
-    console.log(`Just got a request at ${req.url}!`)
-    res.write('Yo!');
-    res.end();
-}).listen(process.env.PORT || 3000);
-*/
+http
+	.createServer(function (req, res) {
+		console.log(`Just got a request at ${req.url}!`)
+		res.write('Yo!')
+		res.end()
+	})
+	.listen(process.env.PORT || 3000)
