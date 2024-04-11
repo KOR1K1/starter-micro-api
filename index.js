@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
-import TOKEN from './token.js'
-const bot = new Telegraf(process.env.TELEGRAM_BOT || TOKEN)
+//import TOKEN from './token.js'
+const bot = new Telegraf(process.env.TELEGRAM_BOT)
 bot.use(async (ctx, next) => {
 	console.time(`Processing update ${ctx.update.update_id}`)
 	await next() // runs next middleware
